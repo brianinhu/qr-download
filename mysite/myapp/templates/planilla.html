@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planilla</title>
+    {# Cargar los estilos de Bootstrap 5 #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+      /* Estilos para el body y los inputs para la familia de la fuente y el tamaño */
+      body,
+      input[type='datetime-local'],
+      input[type='date'],
+      input[type='text'] {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        font-size: 12px;
+      }
+      
+      /* Estilos para la etiqueta legend para el tamaño de letra y el estilo a mayúsculas*/
+      legend {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      
+      /*Estilos a los inputs y los textareas para eliminar los estilos de borde por defecto del Bootstrap 5*/
+      input[type='text'],
+      input[type='datetime-local'],
+      input[type='date'],
+      textarea {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #000;
+        box-shadow: none !important;
+      }
+      
+      /*Estilos a los inputs y los textareas para eliminar los estilos de borde por defecto del Bootstrap 5 al activarse el evento focus*/
+      input[type='text']:focus,
+      textarea:focus,
+      input[type='datetime-local']:focus,
+      input[type='date']:focus {
+        border-color: #000;
+        box-shadow: none;
+      }
+      
+      /*Estilos al input de tipo radio para mostrar un icono de mano al pasar por su área*/
+      input[type='radio'] {
+        cursor: pointer;
+      }
+      
+      /* Cambiar el color de la etiqueta fieldset*/
+      fieldset.border {
+        border: 1px solid #000 !important;
+      }
+      
+      /* Rotar el label "Pulgar derecho" para posicionarlo de forma vertical */
+      .rotar-270 {
+        transform: rotate(270deg);
+      }
+    </style>
+  </head>
+  <body class="p-0 m-4">
+    <form>
+      {# Inicio de la página 1 #}
+      <section class="main" id="pagina-1">
+        <header>
+          <p class="text-center fw-bold text-uppercase m-0 fs-6">Planilla de registro de cadena de custodia (PRCC)</p>
+        </header>
+        <article id="i-datos-generales">
+          <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">I. Datos generales</legend>
+            <div class="d-flex flex-column mx-4 mb-4">
+              <div class="d-flex flex-column flex-sm-row gap-4">
+                <div class="d-flex flex-column gap-2 w-100">
+                  <div class="d-flex align-items-center gap-2">
+                    <label class="text-nowrap" for="n-expediente">N° de Expediente / Causa:</label>
+                    <input type="text" id="n-expediente" name="n-expediente" class="form-control" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="despacho-instruye">Despacho que instruye:</label>
+                    <input type="text" id="despacho-instruye" name="despacho-instruye" class="form-control" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="despacho-custodia">Despacho que inicia la custodia:</label>
+                    <input type="text" id="despacho-custodia" name="despacho-custodia" class="form-control" />
+                  </div>
+                </div>
+                <div div class="d-flex flex-column gap-2 w-100">
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="n-prcc">N° PRCC:</label>
+                    <input type="text" id="n-prcc" name="n-prcc" class="form-control" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="organismo-instruye">Organismo que instruye:</label>
+                    <input type="text" id="organismo-instruye" name="organismo-instruye" class="form-control" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="organismo-custodia">Organismo que custodia:</label>
+                    <input type="text" id="organismo-custodia" name="organismo-custodia" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column mt-2 gap-2">
+                <label for="direccion-obtencion">Direccion de Obtención:</label>
+                <textarea class="overflow-auto" name="direccion-obtencion" id="direccion-obtencio" rows="2"></textarea>
+                <label for="fecha-hora">Fecha y Hora:</label>
+                <input type="datetime-local" id="fecha-hora" name="fecha-hora" class="form-control" />
+              </div>
+            </div>
+          </fieldset>
+        </article>
+        <article id="ii-formas-obtencion-evidencia">
+          <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">II. Formas de obtención de evidencia</legend>
+            <div class="d-flex flex-column flex-sm-row justify-content-evenly align-items-center mb-3">
+              <div class="d-flex gap-2">
+                <label for="tecnica">Técnica</label>
+                <input type="radio" id="tecnica" name="formas-obtencion-evidencia-radio" value="Técnica" /><br />
+              </div>
+              <div class="d-flex gap-2">
+                <label for="aseguramiento">Aseguramiento</label>
+                <input type="radio" id="aseguramiento" name="formas-obtencion-evidencia-radio" value="Aseguramiento" /><br />
+              </div>
+              <div class="d-flex gap-2">
+                <label for="consignacion">Consignación</label>
+                <input type="radio" id="consignacion" name="formas-obtencion-evidencia-radio" value="Consignación" /><br />
+              </div>
+              <div class="d-flex gap-2">
+                <label for="derivacion">Derivación</label>
+                <input type="radio" id="derivacion" name="formas-obtencion-evidencia-radio" value="Derivación" /><br />
+              </div>
+              <input type="hidden" id="formas-obtencion-evidencia" name="formas-obtencion-evidencia" value="" />
+            </div>
+          </fieldset>
+        </article>
+        <article id="iii-funcionario-evidencia">
+          <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">III. Funcionario que obtiene la evidencia</legend>
+            <div class="d-flex flex-column flex-sm-row justify-content-evenly align-items-center gap-4 mx-4 mb-4">
+              <div class="w-100">
+                <fieldset class="border p-2">
+                  <legend class="float-none w-auto p-2 m-0 fw-bold">Fijación</legend>
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <div class="d-flex flex-column gap-2 w-100">
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="w-50" for="f-nombres-apellidos">Nombres y apellidos:</label>
+                        <input class="form-control" type="text" id="f-nombres-apellidos" name="f-nombres-apellidos" />
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="w-50" for="f-ci-credencial">C.I. o Credencial:</label>
+                        <input class="form-control" type="text" id="f-ci-credencial" name="f-ci-credencial" />
+                      </div>
+                      <div class="d-flex align-items-center gap-2 my-4">
+                        <label class="w-50">Firma:</label>
+                        <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                      <div class="d-flex justify-content-center w-50">
+                        <div class="py-5" type="text">&nbsp;</div>
+                      </div>
+                      <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="w-100">
+                <fieldset class="border p-2">
+                  <legend class="float-none w-auto p-2 m-0 fw-bold">Colección</legend>
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <div class="d-flex flex-column gap-2 w-100">
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="w-50" for="c-nombres-apellidos">Nombres y apellidos:</label>
+                        <input class="form-control" type="text" id="c-nombres-apellidos" name="c-nombres-apellidos" />
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="w-50" for="c-ci-credencial">C.I. o Credencial:</label>
+                        <input class="form-control" type="text" id="c-ci-credencial" name="c-ci-credencial" />
+                      </div>
+                      <div class="d-flex align-items-center gap-2 my-4">
+                        <label class="w-50">Firma:</label>
+                        <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                      <div class="d-flex justify-content-center w-50">
+                        <div class="py-5" type="text">&nbsp;</div>
+                      </div>
+                      <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </fieldset>
+        </article>
+        <article id="iv-descripcion-evidencia">
+          <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">IV. Descripción de la evidencia</legend>
+            <div class="d-flex flex-column mx-4 mb-3">
+              <div class="d-flex">
+                <textarea class="overflow-auto w-100" name="descripcion-evidencia" rows="8"></textarea>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-end pt-2 gap-2">
+                <p class="m-0">Continuación:</p>
+                <div class="d-flex align-items-center gap-2">
+                  <label for="d-e-si">Sí</label>
+                  <input type="radio" name="descripcion-evidencia-radio" id="d-e-si" value="Sí" onchange="activarDesactivarTextarea()" />
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <label for="d-e-no">No</label>
+                  <input type="radio" name="descripcion-evidencia-radio" id="d-e-no" value="No" onchange="activarDesactivarTextarea()" />
+                </div>
+                <p class="m-0">(Anexo A)</p>
+                <input type="hidden" id="descripcion-evidencia-radio" name="descripcion-evidencia-radio" value="" />
+              </div>
+            </div>
+          </fieldset>
+        </article>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <article id="v-transferencia-evidencia">
+          <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">V. Transferencia de la evidencia</legend>
+            <div class="d-flex flex-column mx-4 mb-4">
+              <fieldset class="border p-2">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Motivo</legend>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly align-items-center mb-3">
+                  <div class="d-flex gap-2">
+                    <label for="v-m-traslado">Traslado</label>
+                    <input type="radio" id="v-m-traslado" name="v-m-radio" value="Traslado" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="v-m-peritaje">Peritaje</label>
+                    <input type="radio" id="v-m-peritaje" name="v-m-radio" value="Peritaje" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="v-m-resguardo">Resguardo</label>
+                    <input type="radio" id="v-m-resguardo" name="v-m-radio" value="Resguardo" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="v-m-disposicion-judicial">Disposición judicial</label>
+                    <input type="radio" id="v-m-disposicion-judicial" name="v-m-radio" value="Disposición judicial" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="v-m-disposicion-final">Disposición final</label>
+                    <input type="radio" id="v-m-disposicion-final" name="v-m-radio" value="Disposición final" />
+                  </div>
+                  <input type="hidden" id="v-m-radio" name="v-m-radio" value="" />
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="v-m-fecha-hora">Fecha y hora:</label>
+                    <input class="form-control" type="datetime-local" id="v-m-fecha-hora" name="v-m-fecha-hora" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="v-m-comunicacion">N° de comunicación:</label>
+                    <input class="form-control" type="text" id="v-m-comunicacion" name="v-m-comunicacion" />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-2">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Entrega</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-e-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="v-e-nombre-apellido" name="v-e-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-e-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="v-e-organismo" name="v-e-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-e-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="v-e-despacho" name="v-e-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-e-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="v-e-ci-cred" name="v-e-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-e-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="v-e-fecha" name="v-e-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-2">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Recibe</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-r-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="v-r-nombre-apellido" name="v-r-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-r-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="v-r-organismo" name="v-r-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-r-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="v-r-despacho" name="v-r-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-r-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="v-r-ci-cred" name="v-r-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="v-r-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="v-r-fecha" name="v-r-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-2">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Observaciones</legend>
+                <div class="d-flex mx-4 mb-4">
+                  <textarea class="w-100 overflow-auto" name="v-observaciones" rows="3"></textarea>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+        </article>
+      </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      {# Inicio de la página 2 #}
+      <section class="main" id="pagina-2">
+        <p class="text-center fw-bold text-uppercase m-0 fs-6">Planilla de registro de cadena de custodia (PRCC)</p>
+        <article id="vi-transferencia-evidencia">
+          <fieldset class="border p-1">
+            <legend class="float-none w-auto m-0 fw-bold">VI. Transferencia de la evidencia</legend>
+            <div class="d-flex flex-column">
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Motivo</legend>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly align-items-center mb-3">
+                  <div class="d-flex gap-2">
+                    <label for="vi-m-traslado">Traslado</label>
+                    <input type="radio" id="vi-m-traslado" name="vi-m-radio" value="Traslado" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vi-m-peritaje">Peritaje</label>
+                    <input type="radio" id="vi-m-peritaje" name="vi-m-radio" value="Peritaje" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vi-m-resguardo">Resguardo</label>
+                    <input type="radio" id="vi-m-resguardo" name="vi-m-radio" value="Resguardo" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vi-m-disposicion-judicial">Disposición judicial</label>
+                    <input type="radio" id="vi-m-disposicion-judicial" name="vi-m-radio" value="Disposición judicial" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vi-m-disposicion-final">Disposición final</label>
+                    <input type="radio" id="vi-m-disposicion-final" name="vi-m-radio" value="Disposición final" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="vi-m-fecha-hora">Fecha y hora:</label>
+                    <input class="form-control" type="datetime-local" id="vi-m-fecha-hora" name="vi-m-fecha-hora" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label for="vi-m-comunicacion">N° de comunicación:</label>
+                    <input class="form-control" type="text" id="vi-m-comunicacion" name="vi-m-comunicacion" />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Entrega</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-e-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="vi-e-nombre-apellido" name="vi-e-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-e-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="vi-e-organismo" name="vi-e-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-e-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="vi-e-despacho" name="vi-e-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-e-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="vi-e-ci-cred" name="vi-e-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-e-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="vi-e-fecha" name="vi-e-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Recibe</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-r-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="vi-r-nombre-apellido" name="vi-r-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-r-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="vi-r-organismo" name="vi-r-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-r-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="vi-r-despacho" name="vi-r-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-r-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="vi-r-ci-cred" name="vi-r-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vi-r-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="vi-r-fecha" name="vi-r-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+        </article>
+        <article id="vii-transferencia-evidencia">
+          <fieldset class="border p-1">
+            <legend class="float-none w-auto p-2 m-0 fw-bold">VII. Transferencia de la evidencia</legend>
+            <div class="d-flex flex-column">
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Motivo</legend>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly align-items-center mb-3">
+                  <div class="d-flex gap-2">
+                    <label for="vii-m-traslado">Traslado</label>
+                    <input type="radio" id="vii-m-traslado" name="vii-m-radio" value="Traslado" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vii-m-peritaje">Peritaje</label>
+                    <input type="radio" id="vii-m-peritaje" name="vii-m-radio" value="Peritaje" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vii-m-resguardo">Resguardo</label>
+                    <input type="radio" id="vii-m-resguardo" name="vii-m-radio" value="Resguardo" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vii-m-disposicion-judicial">Disposición judicial</label>
+                    <input type="radio" id="vii-m-disposicion-judicial" name="vii-m-radio" value="Disposición judicial" />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <label for="vii-m-disposicion-final">Disposición final</label>
+                    <input type="radio" id="vii-m-disposicion-final" name="vii-m-radio" value="Disposición final" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                  <div class="d-flex align-items-center gap-2">
+                    <label class="w-50" for="vii-m-fecha-hora">Fecha y hora:</label>
+                    <input class="form-control" type="datetime-local" id="vii-m-fecha-hora" name="vii-m-fecha-hora" />
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <label class="w-75" for="vii-m-comunicacion">N° de comunicación:</label>
+                    <input class="form-control" type="text" id="vii-m-comunicacion" name="vii-m-comunicacion" />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Entrega</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-e-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="vii-e-nombre-apellido" name="vii-e-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-e-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="vii-e-organismo" name="vii-e-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-e-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="vii-e-despacho" name="vii-e-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-e-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="vii-e-ci-cred" name="vii-e-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-e-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="vii-e-fecha" name="vii-e-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="border p-1">
+                <legend class="float-none w-auto p-2 m-0 fw-bold">Recibe</legend>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-r-nombre-apellido">Nombre y apellido:</label>
+                      <input class="form-control" type="text" id="vii-r-nombre-apellido" name="vii-r-nombre-apellido" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-r-organismo">Organismo:</label>
+                      <input class="form-control" type="text" id="vii-r-organismo" name="vii-r-organismo" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-r-despacho">Despacho:</label>
+                      <input class="form-control" type="text" id="vii-r-despacho" name="vii-r-despacho" />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column gap-2 w-100">
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-r-ci-cred">C.I./Cred:</label>
+                      <input class="form-control" type="text" id="vii-r-ci-cred" name="vii-r-ci-cred" />
+                    </div>
+                    <div class="d-flex align-items-center gap-2 my-4">
+                      <label class="w-75">Firma:</label>
+                      <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="w-75" for="vii-r-fecha">Fecha:</label>
+                      <input class="form-control" type="date" id="vii-r-fecha" name="vii-r-fecha" />
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                    <div class="d-flex justify-content-center w-50">
+                      <div class="py-5" type="text">&nbsp;</div>
+                    </div>
+                    <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+        </article>
+      </section>
+      <br />
+      <br />
+      {# Inicio de la página 3 #}
+      <section class="main" id="pagina-3">
+        <fieldset class="border p-2">
+          <legend class="float-none w-auto p-2 m-0 fw-bold">Anexo A - Registro de continuidad</legend>
+          <div class="mx-4 mb-4">
+            <fieldset class="border p-2">
+              <legend class="float-none w-auto p-2 m-0 fw-bold">I. Datos de continuidad del registro de cadena de custodia</legend>
+              <div class="d-flex flex-column flex-sm-row mx-4 mb-4 gap-4">
+                <div class="d-flex align-items-center gap-2">
+                  <label for="anexo-a-n-expediente">N° de Expediente / Causa:</label>
+                  <input class="form-control" type="text" id="anexo-a-n-expediente" name="anexo-a-n-expediente" />
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <label for="anexo-a-n-prcc">N° PRCC:</label>
+                  <input class="form-control" type="text" id="anexo-a-n-prcc" name="anexo-a-n-prcc" />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <legend class="float-none w-auto p-2 m-0 fw-bold">II. Continuidad de responsabilidad</legend>
+              <div>
+                <fieldset class="border p-2">
+                  <legend class="float-none w-auto p-2 m-0 fw-bold">Colección</legend>
+                  <div class="d-flex flex-column flex-sm-row gap-4">
+                    <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                      <div class="d-flex gap-2 align-items-center">
+                        <label class="w-75" for="anexo-a-nombres-apellidos">Nombres y apellidos:</label>
+                        <input class="form-control" type="text" id="anexo-a-nombres-apellidos" name="anexo-a-nombres-apellidos" />
+                      </div>
+                      <div class="d-flex align-items-center gap-2 my-4">
+                        <label class="w-75">Firma:</label>
+                        <div class="border-bottom border-black w-100" type="text">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center gap-2 w-100">
+                      <div class="d-flex gap-2 align-items-center">
+                        <label class="w-75" for="anexo-a-ci-credencial">C.I. o Credencial:</label>
+                        <input class="form-control" type="text" id="anexo-a-ci-credencial" name="anexo-a-ci-credencial" />
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <label class="w-75" for="anexo-a-fecha">Fecha:</label>
+                        <input class="form-control" type="date" id="anexo-a-fecha" name="anexo-a-fecha" />
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center gap-2 w-100">
+                      <div class="d-flex justify-content-center w-50">
+                        <div class="py-5" type="text">&nbsp;</div>
+                      </div>
+                      <label class="rotar-270 text-nowrap">Pulgar derecho</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <legend class="float-none w-auto p-2 m-0 fw-bold">III. Descripción de la evidencia</legend>
+              <div class="mx-4 mb-4">
+                <textarea class="w-100 overflow-auto" id="anexo-a-descripcion-evidencia" name="anexo-a-descripcion-evidencia" rows="20" disabled="false"></textarea>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <legend class="float-none w-auto p-2 m-0 fw-bold">IV. Observaciones</legend>
+              <div class="mx-4 mb-4">
+                <textarea class="w-100 overflow-auto" name="anexo-a-observaciones" rows="3"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+      </section>
+      <br />
+      <br />
+      <br />
+      {# Inicio de la página 4 #}
+      <section class="main" id="pagina-4">
+        <fieldset class="border p-2">
+          <legend class="float-none w-auto p-2 m-0 fw-bold">Anexo B - Registro de derivación</legend>
+          <div class="d-flex flex-column mx-1 mb-1 gap-2">
+            <div class="d-flex flex-column flex-sm-row gap-4">
+              <div class="d-flex flex-column flex-sm-row gap-2">
+                <label class="text-nowrap" for="anexo-b-n-expediente">N° de expediente o causa:</label>
+                <input class="form-control" type="text" id="anexo-b-n-expediente" name="anexo-b-n-expediente" />
+              </div>
+              <div class="d-flex flex-column flex-sm-row gap-2">
+                <label class="text-nowrap" for="anexo-b-n-prcc">N° PRCC:</label>
+                <input class="form-control" type="text" id="anexo-b-n-prcc" name="anexo-b-n-prcc" />
+              </div>
+            </div>
+            <fieldset class="border p-2">
+              <div class="d-flex flex-column m-4 gap-2">
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <label for="anexo-b-1-fecha">Fecha:</label>
+                    <input class="form-control" type="date" id="anexo-b-1-fecha" name="anexo-b-1-fecha" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-1-despacho-deriva">Despacho que se deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-1-despacho-deriva" name="anexo-b-1-despacho-deriva" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-1-forense-deriva">Forense que deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-1-forense-deriva" name="anexo-b-1-forense-deriva" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-1-n-experticia">N° Experticia:</label>
+                    <input class="form-control" type="text" id="anexo-b-1-n-experticia" name="anexo-b-1-n-experticia" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex justify-content-center align-items-center text-nowrap gap-2">
+                    <label for="anexo-b-1-evidencia-deriva">Evidencia que se deriva:</label>
+                  </div>
+                  <div class="d-flex align-items-center text-nowrap gap-2">
+                    <textarea class="w-100 overflow-auto" id="anexo-b-1-evidencia-deriva" name="anexo-b-1-evidencia-deriva" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <div class="d-flex flex-column m-4 gap-2">
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <label for="anexo-b-2-fecha">Fecha:</label>
+                    <input class="form-control" type="date" id="anexo-b-2-fecha" name="anexo-b-2-fecha" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-2-despacho-deriva">Despacho que se deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-2-despacho-deriva" name="anexo-b-2-despacho-deriva" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-2-forense-deriva">Forense que deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-2-forense-deriva" name="anexo-b-2-forense-deriva" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-2-n-experticia">N° Experticia:</label>
+                    <input class="form-control" type="text" id="anexo-b-2-n-experticia" name="anexo-b-2-n-experticia" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex justify-content-center align-items-center text-nowrap gap-2">
+                    <label for="anexo-b-2-evidencia-deriva">Evidencia que se deriva:</label>
+                  </div>
+                  <div class="d-flex align-items-center text-nowrap gap-2">
+                    <textarea class="w-100 overflow-auto" id="anexo-b-2-evidencia-deriva" name="anexo-b-2-evidencia-deriva" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <div class="d-flex flex-column m-4 gap-2">
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <label for="anexo-b-3-fecha">Fecha:</label>
+                    <input class="form-control" type="date" id="anexo-b-3-fecha" name="anexo-b-3-fecha" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-3-despacho-deriva">Despacho que se deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-3-despacho-deriva" name="anexo-b-3-despacho-deriva" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-3-forense-deriva">Forense que deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-3-forense-deriva" name="anexo-b-3-forense-deriva" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-3-n-experticia">N° Experticia:</label>
+                    <input class="form-control" type="text" id="anexo-b-3-n-experticia" name="anexo-b-3-n-experticia" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex justify-content-center align-items-center text-nowrap gap-2">
+                    <label for="anexo-b-3-evidencia-deriva">Evidencia que se deriva:</label>
+                  </div>
+                  <div class="d-flex align-items-center text-nowrap gap-2">
+                    <textarea class="w-100 overflow-auto" id="anexo-b-3-evidencia-deriva" name="anexo-b-3-evidencia-deriva" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2">
+              <div class="d-flex flex-column m-4 gap-2">
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+                    <label for="anexo-b-4-fecha">Fecha:</label>
+                    <input class="form-control" type="date" id="anexo-b-4-fecha" name="anexo-b-4-fecha" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-4-despacho-deriva">Despacho que se deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-4-despacho-deriva" name="anexo-b-4-despacho-deriva" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-4">
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-4-forense-deriva">Forense que deriva:</label>
+                    <input class="form-control" type="text" id="anexo-b-4-forense-deriva" name="anexo-b-4-forense-deriva" />
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row text-nowrap gap-2 w-100">
+                    <label for="anexo-b-4-n-experticia">N° Experticia:</label>
+                    <input class="form-control" type="text" id="anexo-b-4-n-experticia" name="anexo-b-4-n-experticia" />
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex justify-content-center align-items-center text-nowrap gap-2">
+                    <label for="anexo-b-4-evidencia-deriva">Evidencia que se deriva:</label>
+                  </div>
+                  <div class="d-flex align-items-center text-nowrap gap-2">
+                    <textarea class="w-100 overflow-auto" id="anexo-b-4-evidencia-deriva" name="anexo-b-4-evidencia-deriva" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+      </section>
+      <div class="d-flex justify-content-center p-2 m-2">
+        <button class="btn btn-primary" id="btn-download">Descargar en formato PDF</button>
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/js-html2pdf@1.1.4/lib/html2pdf.min.js"></script>
+    <script>
+      // Captura el elemento con el id btn-download
+      var btnDownload = document.getElementById('btn-download')
+      
+      // Agrega un evento click al botón
+      btnDownload.addEventListener('click', function () {
+        // Previene que el formulario se envíe
+        event.preventDefault()
+      
+        // Clona el contenido del body
+        var clonedContent = document.body.cloneNode(true)
+      
+        // Elimina el botón de descarga del contenido clonado
+        var downloadButton = clonedContent.querySelector('#btn-download')
+        if (downloadButton) {
+          downloadButton.parentNode.removeChild(downloadButton)
+        }
+      
+        // Añade las configuraciones para la descarga del PDF
+        var config = {
+          margin: 5,
+          filename: 'planilla.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 5, logging: true, dpi: 192, letterRendering: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }
+      
+        // Crea una instancia de html2pdf y descarga el PDF
+        var exporter = new html2pdf(clonedContent, config)
+      
+        // Descarga el PDF
+        exporter.getPdf(true).then((pdf) => {
+          console.log('pdf file downloaded')
+        })
+      })
+      
+      // Función para activar o desactivar el textarea
+      function activarDesactivarTextarea() {
+        // Captura los elementos con los id d-e-si y anexo-a-descripcion-evidencia
+        var radioSi = document.getElementById('d-e-si')
+        var textarea = document.getElementById('anexo-a-descripcion-evidencia')
+      
+        // Si el radio está seleccionado, activa el textarea, de lo contrario lo desactiva
+        if (radioSi.checked) {
+          textarea.disabled = false
+        } else {
+          textarea.disabled = true
+          textarea.value = ''
+        }
+      }
+    </script>
+  </body>
+</html>
