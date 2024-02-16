@@ -1,0 +1,23 @@
+# Ignorar archivos y directorios generados por Django
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Ignorar archivos de configuración local
+settings_local.py
+
+# Ignorar archivos y directorios generados por el entorno virtual
+venv/
+.env
+
+# Ignorar archivos y directorios generados por el IDE
+.vscode/
+.idea/
+
+# Ignorar archivos y directorios generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos creados por el entorno virtual (pipenv)
+Pipfile.lock
+Pipfile
