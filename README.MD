@@ -1,18 +1,18 @@
-# Descarga de archivo con QR y botón
+# File download with QR and button
 
-## Descripción
-Este proyecto muestra cómo descargar un archivo excel (.xlsx) con un QR generado con la librería qrcode y un botón. Además, se implementa un servidor local mediante el wifi de la computadora para que otros dispositivos puedan acceder a la página y descargar el archivo.
+## Description
+This project shows how to download an excel file (.xlsx) with a QR generated with the qrcode library and a button. In addition, a local server is implemented using the computer's wifi so that other devices can access the page and download the file.
 
-## Pasos
-1. Clonar el repositorio.
-2. Instalar las dependencias con `pip install -r requirements.txt`.
-3. Abrir el archivo `views.py` y cambiar la dirección IP en la línea 32 por la dirección IP de la computadora.
-4. Abrir la terminal (ctrl + ñ) e ir al directorio ..\qr-planilla\mysite con el comando `cd .\mysite\`.
-5. Ejecutar el comando `py manage.py runserver 0.0.0.0:8000`.
-6. Ingresar en el navegador la dirección `http://127.0.0.1:8000/` para ver la página.
-7. Ingresar en el navegador de otro dispositivo la dirección `http://<dirección IP de la computadora>:8000/` para ver la página.
+## Steps
+1. Clone the repository.
+2. Install the dependencies using `pip install -r requirements.txt`.
+3. Open `views.py` and change the IP address in line 32 to the IP address of your computer.
+4. Open the terminal and go to the ..\qr-template directory with the command `cd .\mysite`.
+5. Execute the command `py manage.py runserver 0.0.0.0:8000`.
+6. Enter the address `http://127.0.0.1:8000/` in your browser to view the page.
+7. In the browser of another device, type `http://<computer IP address>:8000/` to view the page.
 
-## Resultados
+## Results
 
 - ### Desktop
 
